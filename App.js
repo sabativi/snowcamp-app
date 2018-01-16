@@ -8,7 +8,7 @@ import Router from "./app/router/index";
 import images from "./assets/images/index";
 import fonts from "./assets/fonts/index";
 
-const httpLink = new HttpLink({ uri: "https://fakerql.com/graphql" });
+const httpLink = new HttpLink({ uri: "https://api.graph.cool/simple/v1/cjcgb12af2y1f0123jrcu57ok" });
 
 const client = new ApolloClient({
   link: httpLink,

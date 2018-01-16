@@ -12,19 +12,19 @@ const styles = StyleSheet.create({
   }
 });
 
-class SettingsScreen extends React.Component {
+class SpeakersScreen extends React.Component {
   static navigationOptions = {
-    tabBarLabel: "Settings",
-    tabBarIcon: ({ tintColor }) => <Icon name="cogs" color={tintColor} />
+    tabBarLabel: "Speakers",
+    tabBarIcon: ({ tintColor }) => <Icon name="user" color={tintColor} />
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Settings</Text>
+        <Text>Speakers</Text>
       </View>
     );
   }
 }
 
-export default SettingsScreen;
+export default SpeakersScreen;

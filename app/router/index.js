@@ -1,15 +1,28 @@
 import React from "react";
-import { TabNavigator } from "react-navigation";
+import { TabNavigator, StackNavigator } from "react-navigation";
 import Home from "../screens/Home";
-import Settings from "../screens/Settings";
+import Speakers from "../screens/Speakers";
+import Schedule from "../screens/Schedule";
 
-const Router = TabNavigator({
-  Home: {
-    screen: Home
+const TabRouter = TabNavigator({
+  Schedule: {
+    screen: Schedule
   },
-  Settings: {
-    screen: Settings
+  Speakers: {
+    screen: Speakers
   }
 });
 
-export default Router;
+const StackRouter = StackNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: () => ({
+      header: null,
+    })
+  },
+  Tab: {
+    screen: TabRouter,
+  }
+});
+
+export default StackRouter;
