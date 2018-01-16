@@ -1,23 +1,66 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from "react-native";
+import { AppLoading, Asset, Font } from 'expo';
+import { ApolloClient } from "apollo-client";
+import { HttpLink, InMemoryCache } from "apollo-client-preset";
+import { ApolloProvider, graphql } from "react-apollo";
+import Router from "./app/router/index";
+import images from "./assets/images/index";
+import fonts from "./assets/fonts/index";
 
-export default class App extends React.Component {
+const httpLink = new HttpLink({ uri: "https://fakerql.com/graphql" });
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache({
+    dataIdFromObject: e => e.id
+  })
+});
+
+function cacheImages(images) {
+  return images.map(image => {
+    if (typeof image === 'string') {
+      return Image.prefetch(image);
+    }
+    return Asset.fromModule(image).downloadAsync();
+  });
+}
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      appIsReady: false,
+    };
+    this._loadAsync = this._loadAsync.bind(this);
+  }
+  componentDidMount() {
+    this._loadAsync();
+  }
+  async _loadAsync() {
+    const imageAssets = cacheImages(Object.values(images));
+    const fontAssets = await Font.loadAsync(fonts);
+    try {
+      await Promise.all(imageAssets);
+    } catch (e) {
+      console.warn('Error downloading assets', e); // eslint-disable-line
+    }
+  }
   render() {
+    if (!this.state.appIsReady) {
+      return <AppLoading 
+        startAsync={this._loadAsync}
+        onError={console.warn}
+        onFinish={() => this.setState({ appIsReady: true })}
+      />;
+    }
+
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <ApolloProvider client={client}>
+        <Router />
+      </ApolloProvider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
