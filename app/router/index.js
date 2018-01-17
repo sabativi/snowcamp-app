@@ -15,6 +15,7 @@ const TabRouter = TabNavigator(
   },
   {
     swipeEnabled: true,
+    tabBarPosition: 'bottom',
     tabBarOptions: {
       activeTintColor: "#d64844",
       inactiveTintColor: "grey",
