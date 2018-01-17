@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 
 class SponsorsList extends React.Component {
   render() {
-    const { t, data: { loading, error, allSponsors } } = this.props;
+    const { data: { loading, error, allSponsors } } = this.props;
     if (loading) {
       return <Loader />;
     }
