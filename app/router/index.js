@@ -1,15 +1,15 @@
 import React from "react";
 import { TabNavigator, StackNavigator } from "react-navigation";
 import Home from "../screens/Home";
-import Speakers from "../screens/Speakers";
-import Schedule from "../screens/Schedule";
+import Thursday from "../screens/Thursday";
+import Friday from "../screens/Friday";
 
 const TabRouter = TabNavigator({
-  Schedule: {
-    screen: Schedule
+  Thursday: {
+    screen: Thursday
   },
-  Speakers: {
-    screen: Speakers
+  Friday: {
+    screen: Friday
   }
 });
 
@@ -17,11 +17,14 @@ const StackRouter = StackNavigator({
   Home: {
     screen: Home,
     navigationOptions: () => ({
-      header: null,
+      header: null
     })
   },
   Tab: {
     screen: TabRouter,
+    navigationOptions: () => ({
+      headerTitle: 'Schedule'
+    })
   }
 });
 

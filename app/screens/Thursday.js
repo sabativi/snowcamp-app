@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
   }
 });
 
-class ScheduleScreen extends React.Component {
+class ThursdayScreen extends React.Component {
   static navigationOptions = {
-    tabBarLabel: 'Schedule',
+    tabBarLabel: 'Thursday',
     tabBarIcon: ({ tintColor }) => (
       <Icon name='calendar' color={tintColor} />
     ),
@@ -29,4 +29,4 @@ class ScheduleScreen extends React.Component {
   }
 }
 
-export default ScheduleScreen;
+export default ThursdayScreen;

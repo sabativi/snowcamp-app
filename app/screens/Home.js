@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 class HomeScreen extends React.Component {
   handleGoToSchedule = () => {
     const { navigation } = this.props;
-    navigation.navigate("Schedule");
+    navigation.navigate("Thursday");
   }
   render() {
     return (

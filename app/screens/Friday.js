@@ -12,19 +12,19 @@ const styles = StyleSheet.create({
   }
 });
 
-class SpeakersScreen extends React.Component {
+class FridayScreen extends React.Component {
   static navigationOptions = {
-    tabBarLabel: "Speakers",
-    tabBarIcon: ({ tintColor }) => <Icon name="user" color={tintColor} />
+    tabBarLabel: "Friday",
+    tabBarIcon: ({ tintColor }) => <Icon name="calendar" color={tintColor} />
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Speakers</Text>
+        <Text>Friday</Text>
       </View>
     );
   }
 }
 
-export default SpeakersScreen;
+export default FridayScreen;
