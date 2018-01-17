@@ -63,4 +63,6 @@ class App extends React.Component {
   }
 }
 
+console.ignoredYellowBox = ["Possible Unhandled Promise Rejection"];
+
 export default App;
