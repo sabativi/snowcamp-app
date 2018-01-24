@@ -1,3 +1,12 @@
+
+App for my [snowcamp](https://snowcamp.io/en/) [workshop](http://sched.co/D1hv) : 
+
+Small [video](https://youtu.be/xPmn_3ojV_4) that shows the app.
+Link of the [slides](snowcamp.surge.sh)
+[Expo link](https://expo.io/@sabativi/snowcamp) for preview.
+
+---
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
